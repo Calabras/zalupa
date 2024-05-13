@@ -1,17 +1,15 @@
 #include "ModelNet.h"
 #include "Exceptions.h"
 
-
 void ModelNet::addObserverstoC() {
     OModel* tmp = new OModel(this);
     modelC->addObserver(tmp);
 }
 
-ModelNet::ModelNet() {
+ModelNet::ModelNet() : painter(nullptr) {
     modelC = new Game();
     modelC->readfromfile2("labirint2.txt");
-    modelC->setHeroPose(1, 1);
-    observers = gcnew List<ObserverNet^>(7);
+    observers = gcnew List<ObserverNet^>(5);
     addObserverstoC();
 }
 
